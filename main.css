@@ -1,0 +1,125 @@
+
+      h2 {
+      font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    li {
+      font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    }
+    
+    li:last-child {
+      border: none;
+    }
+    
+    li a {
+      text-decoration: none;
+      color: #000;
+      -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+      -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+      -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+      -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+      transition: font-size 0.3s ease, background-color 0.3s ease;
+      width: auto;
+    }
+    
+    #cssDisplay {
+      background-color: #FFFFFF;
+      color: #000000;
+      font-family: georgia;
+      font-weight: bold;
+      font-size: 16px;
+      font-variant: small-caps;
+      text-align: center;
+      text-decoration: underline;
+      text-transform: none;
+      background-repeat: repeat;
+      cursor: pointer;
+    }
+    
+    li a:hover {
+      font-size: 30px;
+      background: #f6f6f6;
+    }
+    
+    .topcorner {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    
+    .right {
+      position: absolute;
+      right: 50px;
+    }
+    
+    body {
+      margin: 0;
+      background-color: #e9ebee;
+    }
+    
+    ul.topnav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #0c3f63;
+    }
+    
+    ul.topnav li {
+      float: left;
+    }
+    
+    ul.topnav li a {
+      display: inline-block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    
+    ul.topnav li a:hover {
+      background-color: #555;
+    }
+    
+    ul.topnav li.icon {
+      display: none;
+    }
+    
+    @media screen and (max-width:680px) {
+      ul.topnav li:not(:first-child) {
+        display: none;
+      }
+      ul.topnav li.icon {
+        float: right;
+        display: inline-block;
+      }
+    }
+    
+    @media screen and (max-width:680px) {
+      ul.topnav.responsive {
+        position: relative;
+      }
+      ul.topnav.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      ul.topnav.responsive li {
+        float: none;
+        display: inline;
+      }
+      ul.topnav.responsive li a {
+        display: block;
+        text-align: left;
+      }
+    }
