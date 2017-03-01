@@ -31,7 +31,7 @@
 		// create a message to display in our view
 		initApp();
 		
-		$scope.message = 'Everyone come and see how good I look!';
+		$scope.message = 'Yeah, you like it.. oooh wunderbarrrr!';
 		$scope.addAWord = function(){
 			addAWord();
 		};

@@ -29,7 +29,7 @@ var alreadySet = false;
                           date: currentDate.toUTCString()
                       });
                       $('#result').hide().html(
-                          '<img src="britain.png" style="width:25px;margin-right: 15px;"><a id="cssDisplay" target="_blank" href="http://www.linguee.de/deutsch-englisch/search?source=auto&query=' +
+                          '<img src="britain.png" style="width:31px;margin-right: 15px;"><a id="cssDisplay" target="_blank" href="http://www.linguee.de/deutsch-englisch/search?source=auto&query=' +
                           data.text + '">' + data.text + '</a>').fadeIn(500);
                   });
           }
@@ -54,6 +54,7 @@ var alreadySet = false;
               // [START_EXCLUDE]
               /////     document.getElementById('quickstart-oauthtoken').textContent = token;
               // [END_EXCLUDE]
+                location.reload();
           }).catch(function(error) {
               // Handle Errors here.
               var errorCode = error.code;
@@ -76,12 +77,15 @@ var alreadySet = false;
       } else {
           // [START signout]
           firebase.auth().signOut();
+            location.reload();
           // [END signout]
       }
       // [START_EXCLUDE]
       document.getElementById('quickstart-sign-in').disabled = true;
       // [END_EXCLUDE]
+
   }
+
   // [END buttoncallback]
   /**
    * initApp handles setting up UI event listeners and registering Firebase auth listeners:
@@ -127,6 +131,7 @@ var alreadySet = false;
                getWords()
                alreadySet = true;
              }
+
               // [START_EXCLUDE]
               //    document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
               document.getElementById('quickstart-sign-in').textContent = 'Log in with Facebook';

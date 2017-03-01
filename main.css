@@ -18,6 +18,12 @@
     li:last-child {
       border: none;
     }
+
+    hr.style13 {
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
     
     li a {
       text-decoration: none;
@@ -31,11 +37,10 @@
     }
     
     #cssDisplay {
-      background-color: #FFFFFF;
       color: #000000;
       font-family: georgia;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 25px;
       font-variant: small-caps;
       text-align: center;
       text-decoration: underline;
@@ -88,7 +93,7 @@
     }
     
     ul.topnav li a:hover {
-      background-color: #555;
+      background-color: #4a8ba5;
     }
     
     ul.topnav li.icon {
@@ -122,4 +127,8 @@
         display: block;
         text-align: left;
       }
+    }
+
+    #result{
+          padding-top: 20px;
     }
