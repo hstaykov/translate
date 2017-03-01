@@ -21,6 +21,9 @@ var alreadySet = false;
                   "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20170220T190751Z.804f007c23b914ea.50c6cef984e1cc17193a6608117fceaed88a6cfc&text=" +
                   word + "&lang=de-en",
                   function(data, status) {
+                    var sameWord = true;
+                    if(word != data.text){
+                      sameWord = false;
                       var commentsRef = firebase.database().ref(getDictionaryRefString() + word);
                       var currentDate = new Date();
                       commentsRef.set({
@@ -28,9 +31,10 @@ var alreadySet = false;
                           german: word,
                           date: currentDate.toUTCString()
                       });
+                    }
                       $('#result').hide().html(
                           '<img src="britain.png" style="width:31px;margin-right: 15px;"><a id="cssDisplay" target="_blank" href="http://www.linguee.de/deutsch-englisch/search?source=auto&query=' +
-                          data.text + '">' + data.text + '</a>').fadeIn(500);
+                          data.text + '">' + data.text  + '</a>' + (sameWord ? "   (The same word in english. Will not be added to dictionary.)" : "")).fadeIn(500);
                   });
           }
       }

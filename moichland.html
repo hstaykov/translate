@@ -25,7 +25,7 @@
 <body ng-controller="mainController">
 
   <nav class="navbar navbar-default">
-    <div class="container">
+    <div class="container1">
       
 
     <ul class="topnav" id="myTopnav">
@@ -35,8 +35,11 @@
       <p class="right"><img src="http://1.bp.blogspot.com/-1kV59plTcfE/TymocVXd8TI/AAAAAAAAMR8/y_NWmdH27b4/s1600/Deutschland-Gelb.png"
           id="avatar" alt="Smiley face" width="42" height="42"> <a id="currentUser">Anonymous</a>
         <button disabled id="quickstart-sign-in">Log in with Facebook</button>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login Email</button>
+        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
       </p>
     </li>
+
 
     <li class="icon">
       <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">&#9776;</a>
@@ -48,7 +51,35 @@
   <div align="center" id="main">
     <div ng-view></div>
   </div>
+
+
+<div id="id01" class="modal">
   
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+     
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" class="input"required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" class="input"required>
+        
+      <button type="submit">Login</button>
+      
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn button">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+ 
  
   
 </body>
