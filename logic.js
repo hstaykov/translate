@@ -9,29 +9,12 @@
   firebase.initializeApp(config);
 
   angular.module.exports = addAWord;
-   
-  $("#myWord").on('keyup', function(e) {
-      if (e.keyCode == 13) {
-            addAWord();
-          }
-  });
+  
+var userId = "5";
+var alreadySet = false;
 
-        function getDictionaryRefString() {
-          firebase.auth().onAuthStateChanged(function(user) {
-              if (user) {
-                  console.log("userId " + user.uid);
-                  if (user.uid) {
-                      return '/' + user.uid + '/dictionary/';
-                  } else {
-                      return '/dictionary/';
-                  }
-              }
-
-          });
-        }
 
    function addAWord() {
-    //alert(1);
           var word = $("#myWord").val();
           if (word) {
               $.get(
@@ -108,6 +91,8 @@
   function initApp() {
       // Listening for auth state changes.
       // [START authstatelistener]
+
+        document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
       firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
               // User is signed in.
@@ -122,18 +107,26 @@
               userId = uid;
               $("#currentUser").html(displayName);
               $("#avatar").attr("src", photoURL);
-
+              if(!alreadySet){
+               getWords()
+               alreadySet = true;
+             }
               // [START_EXCLUDE]
               //   document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
               document.getElementById('quickstart-sign-in').textContent = 'Log out';
               //   document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
               // [END_EXCLUDE]
 
+
           } else {
               // User is signed out.
-              userId = "2";
+              userId = "anonymous";
               $("#currentUser").html(displayName);
               $("#avatar").attr("src", photoURL);
+              if(!alreadySet){
+               getWords()
+               alreadySet = true;
+             }
               // [START_EXCLUDE]
               //    document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
               document.getElementById('quickstart-sign-in').textContent = 'Log in with Facebook';
@@ -145,24 +138,29 @@
           // [START_EXCLUDE]
           document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
-          initLogic();
+        //  initLogic();
       });
+
+
+
       // [END authstatelistener]
 
   }
 
+          function getDictionaryRefString() {
+            if(firebase.auth().currentUser)
+            console.log("FFF" + firebase.auth().currentUser.uid);
+      
+              
+                  console.log("userId " + userId);
+                  if (userId) {
+                      return '/' + userId + '/dictionary/';
+                  } else {
+                      return '/dictionary/';
+                  }
+              
 
-
-  function initLogic() {
-      console.log("Init logic maaaan")
-      document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-
-      var firstKnownKey = "Flugzeug";
-
-
-
-     
-
+        }
 
 
           function removeWord(word) {
@@ -181,19 +179,16 @@
 
          
 
+          
 
 
-
-          // function getWords() {
+           function getWords() {
 
           var allReft = firebase.database().ref(getDictionaryRefString());
           console.log("REF " + getDictionaryRefString());
-
           allReft.on('child_added', function(data) {
 
-              console.log("==========" + firstKnownKey + " " + userId);
-              firstKnownKey = data.key;
-
+   
 
               $("#right ul").append(
                   '<li><span class="tab"><a target="_blank" href="http://www.linguee.de/deutsch-englisch/search?source=auto&query=' +
@@ -202,7 +197,7 @@
                   '<img src="britain.png" style="width:25px;margin-left: 15px;"></a></span><img onclick="removeWord(\'' +
                   data.val().german +
                   '\')" id="removeElementImg" src="delete.png" style="width:25px;margin-left: 45px;"></li>');
-              console.log(data.val());
+
 
           });
       }
@@ -216,3 +211,4 @@
           }
       }
   
+

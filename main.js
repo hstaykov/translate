@@ -1,5 +1,5 @@
 	// create the module and name it scotchApp
-	var scotchApp = angular.module('scotchApp', ['ngRoute']);
+	var scotchApp = angular.module('scotchApp', ['ngRoute','firebase']);
 
 	// configure our routes
 	scotchApp.config(function($routeProvider) {
@@ -29,7 +29,8 @@
 	// create the controller and inject Angular's $scope
 	scotchApp.controller('mainController', function($scope) {
 		// create a message to display in our view
-		initApp()
+		initApp();
+		
 		$scope.message = 'Everyone come and see how good I look!';
 		$scope.addAWord = function(){
 			addAWord();
@@ -43,3 +44,5 @@
 	scotchApp.controller('contactController', function($scope) {
 		$scope.message = 'Contact us! JK. This is just a demo.';
 	});
+
+
