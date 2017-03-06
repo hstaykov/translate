@@ -12,6 +12,7 @@
   
 var userId = "5";
 var alreadySet = false;
+var testDictionary = [];
 
 
    function addAWord() {
@@ -192,13 +193,20 @@ var alreadySet = false;
 
 
            function getWords() {
-
+            
           var allReft = firebase.database().ref(getDictionaryRefString());
           console.log("REF " + getDictionaryRefString());
+
+          allReft.on('value', function(data){
+              for(var x in data.val()){
+                testDictionary.push(data.val()[x]);
+              }
+          });
+
           allReft.on('child_added', function(data) {
 
    
-
+          
               $("#right ul").append(
                   '<li><span class="tab"><a target="_blank" href="http://www.linguee.de/deutsch-englisch/search?source=auto&query=' +
                   data.val().german + '"><img src="german.png" style="width:25px;margin-right: 15px;">' + data.val().german +
@@ -206,10 +214,45 @@ var alreadySet = false;
                   '<img src="britain.png" style="width:25px;margin-left: 15px;"></a></span><img onclick="removeWord(\'' +
                   data.val().german +
                   '\')" id="removeElementImg" src="delete.png" style="width:25px;margin-left: 45px;"></li>');
-
-
           });
       }
+
+      function getRandomWords(){
+        var number = 5;
+        var randomWords = [];
+        for(i = 0 ; i<number ; i++){
+          var index = Math.floor(Math.random() * testDictionary.length);
+          randomWords.push(testDictionary[index]);
+        }
+        return randomWords;
+      }
+
+
+      function startTest(){
+       
+        var s = new quiz();
+        console.log(s.words[1]);
+        s.startTest();
+       
+          
+        
+      }
+
+    
+      var quiz = function(){
+        this.words  = function(){return getRandomWords()}(),
+        this.startTest = function(){
+          $("#btnTest").remove();
+          for (var i = this.words.length - 1; i >= 0; i--) {
+             $(".testList").append('<li data-id="' + i +'" style="display: none"><p> Do you know what <a class="testWord">' + this.words[i].german +'</a> means ?<input id="testWord" ng-keyup="$event.keyCode == 13 ? testWord() : null" type="text" value="" placeholder=""></input></p></li>');
+          };
+          $(".testList").find('[data-id="0"]').show();
+          $(".testList").find('[data-id="0"]').addClass("active");
+        }
+       
+      }
+
+
 
       function myFunction() {
           var x = document.getElementById("myTopnav");
@@ -221,3 +264,19 @@ var alreadySet = false;
       }
   
 
+function chcekAnswer(){
+
+    var currentQuestion = $(".testList").children(".active");
+    
+    
+}
+
+
+function changeQuestion(currentQuestion){
+    currentQuestion.removeClass("active");
+    currentQuestion.hide();
+    var currentId = parseInt(currentQuestion.data("id"));
+    var nextId = currentId + 1;
+    $(".testList").find('[data-id="'+nextId+'"]').show();
+    $(".testList").find('[data-id="'+nextId+'"]').addClass("active");
+}

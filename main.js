@@ -19,9 +19,9 @@
 			})
 
 			// route for the contact page
-			.when('/contact', {
-				templateUrl : 'pages/contact.html',
-				controller  : 'contactController'
+			.when('/test', {
+				templateUrl : 'pages/test.html',
+				controller  : 'testController'
 			})
 			.otherwise({redirectTo: '/'});
 	});
@@ -41,8 +41,15 @@
 		$scope.message = 'Look! I am an about page.';
 	});
 
-	scotchApp.controller('contactController', function($scope) {
+	scotchApp.controller('testController', function($scope) {
+			initApp();
 		$scope.message = 'Contact us! JK. This is just a demo.';
+		$scope.startTest = function(){
+			startTest();
+		};
+		$scope.chcekAnswer = function(){
+			chcekAnswer();
+		};
 	});
 
 
