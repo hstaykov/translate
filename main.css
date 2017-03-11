@@ -25,7 +25,7 @@
   box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
     
-    li a {
+    .list{
       text-decoration: none;
       color: #000;
       -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
@@ -49,9 +49,8 @@
       cursor: pointer;
     }
     
-    li a:hover {
-      font-size: 30px;
-      background: #f6f6f6;
+    .list:hover {
+      font-size: 25px;
     }
     
     .topcorner {
@@ -155,6 +154,15 @@ button {
     border: none;
     cursor: pointer;
    
+}
+
+div.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+ul {
+    text-align: left;
 }
 
 
@@ -287,4 +295,24 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+}
+
+
+
+
+
+.notCorrect {
+    padding-left: 30px;
+    color: red;
+}
+
+.correct {
+    padding-left: 30px;
+    color: green;
+}
+
+
+.bolded{
+    font-weight: bold;
+    font-size: 20px;
 }
