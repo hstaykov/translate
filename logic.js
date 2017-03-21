@@ -265,12 +265,15 @@ var testDictionary = [];
   
 
 function chcekAnswer(event){
-    if(event.keyCode == 13){
+     var currentQuestion = $(".testList").children(".active");
+    if(event.keyCode == 13 && !currentQuestion.hasClass("clicked")){
+      currentQuestion.addClass("clicked")
       var correct = parseInt($(".correct.score").html());
       var notcorrect = parseInt($(".notCorrect.score").html());
-      var currentQuestion = $(".testList").children(".active");
+    
 
       var guess = currentQuestion.find("input").val().trim();
+
       var answer = currentQuestion.data("eng").trim();
       console.log(guess + " " + answer);
       var show = true;
@@ -287,6 +290,7 @@ function chcekAnswer(event){
       }
 
       setInterval(function(){if(show){changeQuestion(currentQuestion);show=false}},2000);
+
     }
 }
 
