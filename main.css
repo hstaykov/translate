@@ -85,7 +85,7 @@
       display: inline-block;
       color: #f2f2f2;
       text-align: center;
-      padding: 14px 16px;
+      padding: 15px 20px;
       text-decoration: none;
       transition: 0.3s;
       font-size: 17px;
@@ -165,19 +165,26 @@ ul {
     text-align: left;
 }
 
+#currentUser {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    font-size: 17px;
+}
 
+#avatar {
+    padding-left: 10px;
+    padding-top: 5px;
+}
 
+.userNav{
+  position: absolute;
+      right: 50px;
+} 
 
-
-
-
-
-
-
-
-
-
-
+.second {
+    padding-right: 190px;
+}
 
 
 #########################

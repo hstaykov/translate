@@ -38,6 +38,7 @@ var testDictionary = [];
                           data.text + '">' + data.text  + '</a>' + (sameWord ? "   (The same word in english. Will not be added to dictionary.)" : "")).fadeIn(500);
                   });
           }
+        $("#myWord").val("");
       }
  
 
@@ -252,14 +253,16 @@ var testDictionary = [];
        
       }
 
-      //10950978
 
       function myFunction() {
           var x = document.getElementById("myTopnav");
+          var loginLi = $(".userNav");          
           if (x.className === "topnav") {
               x.className += " responsive";
+              loginLi.removeClass("userNav");
           } else {
               x.className = "topnav";
+              loginLi.addClass("userNav");
           }
       }
   
