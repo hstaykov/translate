@@ -4,10 +4,9 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset='utf-8'> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+
   <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
   <link rel="stylesheet" href="main.css">
@@ -16,28 +15,35 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
- 
+
+ <script src="translateLib.js"></script>
  <script src="logic.js"></script>
  <script src="main.js"></script>
 </head>
 
 
-  
+
 <!-- define angular controller -->
 <body ng-controller="mainController">
 
   <nav class="navbar navbar-default">
     <div class="container1">
-      
+
 
     <ul class="topnav" id="myTopnav">
     <li><a class="active" href="#/">Home</a></li>
     <li><a class="active" href="#/test">Test</a></li>
-    <li class="userNav second"><img src="http://1.bp.blogspot.com/-1kV59plTcfE/TymocVXd8TI/AAAAAAAAMR8/y_NWmdH27b4/s1600/Deutschland-Gelb.png"
-          id="avatar" alt="Smiley face" width="42" height="42"></img><span id="currentUser">Anonymous</span></li>
-    
-    <li class="userNav"><a disabled id="quickstart-sign-in">Log in with Facebook</a></li>
-      
+    <li><a class="active" href="#/test"><img src="http://1.bp.blogspot.com/-1kV59plTcfE/TymocVXd8TI/AAAAAAAAMR8/y_NWmdH27b4/s1600/Deutschland-Gelb.png"
+          id="avatar" alt="Smiley face" width="42" height="42"></a></li>
+    <li><a id="currentUser">Anonymous</a></li>
+    <li><a id=""><button disabled id="quickstart-sign-in">Log in with Facebook</button></a></li>
+      <!-- <p class="right"><img src="http://1.bp.blogspot.com/-1kV59plTcfE/TymocVXd8TI/AAAAAAAAMR8/y_NWmdH27b4/s1600/Deutschland-Gelb.png"
+          id="avatar" alt="Smiley face" width="42" height="42">
+        <button disabled id="quickstart-sign-in">Log in with Facebook</button>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login Email</button>
+        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
+      </p> -->
+    </li>
 
 
     <li class="icon">
@@ -53,11 +59,11 @@
 
 
 <div id="id01" class="modal">
-  
+
   <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-     
+
     </div>
 
     <div class="container">
@@ -66,9 +72,9 @@
 
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" class="input"required>
-        
+
       <button type="submit">Login</button>
-      
+
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -78,8 +84,8 @@
   </form>
 </div>
 
- 
- 
-  
+
+
+
 </body>
 </html>

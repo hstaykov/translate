@@ -3,7 +3,7 @@
 
 	// configure our routes
 	scotchApp.config(function($routeProvider) {
-		
+
 		$routeProvider
 
 			// route for the home page
@@ -30,7 +30,7 @@
 	scotchApp.controller('mainController', function($scope) {
 		// create a message to display in our view
 		initApp();
-		
+
 		$scope.message = 'Yeah, you like it.. oooh wunderbarrrr!';
 		$scope.addAWord = function(){
 			addAWord();
@@ -51,5 +51,3 @@
 			chcekAnswer();
 		};
 	});
-
-
